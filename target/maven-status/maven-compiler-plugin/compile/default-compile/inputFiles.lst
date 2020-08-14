@@ -1,0 +1,13 @@
+/home/gangqiangsun/MYPROJECT/BACKEND/licenseServer/src/main/java/com/servlet/LicenseServlet.java
+/home/gangqiangsun/MYPROJECT/BACKEND/licenseServer/src/main/java/com/licensemgr/LicenseServer.java
+/home/gangqiangsun/MYPROJECT/BACKEND/licenseServer/src/main/java/com/util/JwtUtil.java
+/home/gangqiangsun/MYPROJECT/BACKEND/licenseServer/src/main/java/com/util/CreateAuthCode.java
+/home/gangqiangsun/MYPROJECT/BACKEND/licenseServer/src/main/java/com/servlet/CommonServlet.java
+/home/gangqiangsun/MYPROJECT/BACKEND/licenseServer/src/main/java/com/former/Response.java
+/home/gangqiangsun/MYPROJECT/BACKEND/licenseServer/src/main/java/com/util/SystemUtil.java
+/home/gangqiangsun/MYPROJECT/BACKEND/licenseServer/src/main/java/com/former/MsgFormer.java
+/home/gangqiangsun/MYPROJECT/BACKEND/licenseServer/src/main/java/com/db/entity/LicenseInfo.java
+/home/gangqiangsun/MYPROJECT/BACKEND/licenseServer/src/main/java/com/db/server/LicenseInfoServer.java
+/home/gangqiangsun/MYPROJECT/BACKEND/licenseServer/src/main/java/com/db/SessionFactoryUtil.java
+/home/gangqiangsun/MYPROJECT/BACKEND/licenseServer/src/main/java/com/util/DESUtil.java
+/home/gangqiangsun/MYPROJECT/BACKEND/licenseServer/src/main/java/com/db/impl/ILicenseInfoServer.java

@@ -1,0 +1,188 @@
+2020-08-14 09:34:18 LicenseServer.java INFO license is null
+2020-08-14 09:34:18 LicenseServer.java INFO insert license:true
+2020-08-14 09:34:18 LicenseServer.java INFO appType is webapp
+2020-08-14 09:34:18 Log.java INFO Logging initialized @1260ms to org.eclipse.jetty.util.log.Slf4jLog
+2020-08-14 09:34:18 Server.java INFO jetty-9.4.z-SNAPSHOT, build timestamp: 2017-11-22T05:27:37+08:00, git hash: 82b8fb23f757335bb3329d540ce37a2a2615f0a8
+2020-08-14 09:34:18 StandardDescriptorProcessor.java INFO NO JSP Support for /, did not find org.eclipse.jetty.jsp.JettyJspServlet
+2020-08-14 09:34:18 DefaultSessionIdManager.java INFO DefaultSessionIdManager workerName=node0
+2020-08-14 09:34:18 DefaultSessionIdManager.java INFO No SessionScavenger set, using defaults
+2020-08-14 09:34:18 HouseKeeper.java INFO Scavenging every 600000ms
+2020-08-14 09:34:18 ContextHandler.java INFO Started o.e.j.w.WebAppContext@35835e65{/,file:///home/gangqiangsun/MYPROJECT/BACKEND/licenseServer/webapp,AVAILABLE}
+2020-08-14 09:34:18 AbstractConnector.java INFO Started ServerConnector@5ff60a8c{HTTP/1.1,[http/1.1]}{0.0.0.0:8001}
+2020-08-14 09:34:18 Server.java INFO Started @1441ms
+2020-08-14 09:58:22 Version.java INFO HHH000412: Hibernate Core {[WORKING]}
+2020-08-14 09:58:22 Environment.java INFO HHH000206: hibernate.properties not found
+2020-08-14 09:58:22 JavaReflectionManager.java INFO HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2020-08-14 09:58:22 DriverManagerConnectionProviderImpl.java WARN HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-08-14 10:00:22 Version.java INFO HHH000412: Hibernate Core {[WORKING]}
+2020-08-14 10:00:22 Environment.java INFO HHH000206: hibernate.properties not found
+2020-08-14 10:00:22 JavaReflectionManager.java INFO HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2020-08-14 10:00:22 DriverManagerConnectionProviderImpl.java WARN HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-08-14 10:00:22 DriverManagerConnectionProviderImpl.java INFO HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/license]
+2020-08-14 10:00:22 DriverManagerConnectionProviderImpl.java INFO HHH10001001: Connection properties: {user=postgres, password=****, release_mode=after_transaction}
+2020-08-14 10:00:22 DriverManagerConnectionProviderImpl.java INFO HHH10001003: Autocommit mode: false
+2020-08-14 10:00:22 DriverManagerConnectionProviderImpl.java INFO HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-08-14 10:00:22 Dialect.java INFO HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2020-08-14 10:00:22 LobCreatorBuilderImpl.java INFO HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2020-08-14 10:00:22 BasicTypeRegistry.java INFO HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@3e2059ae
+2020-08-14 10:00:22 SessionFactoryOptionsBuilder.java WARN HHH90000023: Encountered use of deprecated Connection handling settings [hibernate.connection.acquisition_mode]or [hibernate.connection.release_mode]; use [hibernate.connection.handling_mode] instead
+2020-08-14 10:00:22 Version.java INFO HV000001: Hibernate Validator 5.0.1.Final
+2020-08-14 10:00:23 DdlTransactionIsolatorNonJtaImpl.java INFO HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5649ec46] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-08-14 10:00:23 QueryTranslatorFactoryInitiator.java INFO HHH000397: Using ASTQueryTranslatorFactory
+2020-08-14 10:00:23 LicenseServer.java INFO license is null
+2020-08-14 10:00:23 AbstractBatchImpl.java INFO HHH000010: On release of batch it still contained JDBC statements
+2020-08-14 10:00:23 BatchingBatch.java ERROR HHH000315: Exception executing batch [java.sql.BatchUpdateException: Batch entry 0 insert into public.licenseinfo (name, productname, ts, vts, id) values ('test', 'androiddm', 1597370423204, 1597370423204, 6) was aborted: ERROR: duplicate key value violates unique constraint "uk_hcliaqhma772lp2tgnhmfjbf6"
+  Detail: Key (name)=(test) already exists.  Call getNextException to see other errors in the batch.], SQL: insert into public.licenseinfo (name, productname, ts, vts, id) values (?, ?, ?, ?, ?)
+2020-08-14 10:00:23 SqlExceptionHelper.java WARN SQL Error: 0, SQLState: 23505
+2020-08-14 10:00:23 SqlExceptionHelper.java ERROR Batch entry 0 insert into public.licenseinfo (name, productname, ts, vts, id) values ('test', 'androiddm', 1597370423204, 1597370423204, 6) was aborted: ERROR: duplicate key value violates unique constraint "uk_hcliaqhma772lp2tgnhmfjbf6"
+  Detail: Key (name)=(test) already exists.  Call getNextException to see other errors in the batch.
+2020-08-14 10:00:23 SqlExceptionHelper.java ERROR ERROR: duplicate key value violates unique constraint "uk_hcliaqhma772lp2tgnhmfjbf6"
+  Detail: Key (name)=(test) already exists.
+2020-08-14 10:00:23 ExceptionMapperStandardImpl.java ERROR HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute batch]
+2020-08-14 10:00:23 LicenseServer.java INFO insert license:false
+2020-08-14 10:00:23 LicenseServer.java INFO appType is webapp
+2020-08-14 10:00:23 Log.java INFO Logging initialized @1305ms to org.eclipse.jetty.util.log.Slf4jLog
+2020-08-14 10:00:23 Server.java INFO jetty-9.4.z-SNAPSHOT, build timestamp: 2017-11-22T05:27:37+08:00, git hash: 82b8fb23f757335bb3329d540ce37a2a2615f0a8
+2020-08-14 10:00:23 StandardDescriptorProcessor.java INFO NO JSP Support for /, did not find org.eclipse.jetty.jsp.JettyJspServlet
+2020-08-14 10:00:23 DefaultSessionIdManager.java INFO DefaultSessionIdManager workerName=node0
+2020-08-14 10:00:23 DefaultSessionIdManager.java INFO No SessionScavenger set, using defaults
+2020-08-14 10:00:23 HouseKeeper.java INFO Scavenging every 660000ms
+2020-08-14 10:00:23 ContextHandler.java INFO Started o.e.j.w.WebAppContext@563a89b5{/,file:///home/gangqiangsun/MYPROJECT/BACKEND/licenseServer/webapp,AVAILABLE}
+2020-08-14 10:00:23 AbstractConnector.java INFO Started ServerConnector@6da9dc6{HTTP/1.1,[http/1.1]}{0.0.0.0:8001}
+2020-08-14 10:00:23 Server.java INFO Started @1473ms
+2020-08-14 10:10:04 Version.java INFO HHH000412: Hibernate Core {[WORKING]}
+2020-08-14 10:10:04 Environment.java INFO HHH000206: hibernate.properties not found
+2020-08-14 10:10:04 JavaReflectionManager.java INFO HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2020-08-14 10:10:04 DriverManagerConnectionProviderImpl.java WARN HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-08-14 10:10:04 DriverManagerConnectionProviderImpl.java INFO HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/license]
+2020-08-14 10:10:04 DriverManagerConnectionProviderImpl.java INFO HHH10001001: Connection properties: {user=postgres, password=****, release_mode=after_transaction}
+2020-08-14 10:10:04 DriverManagerConnectionProviderImpl.java INFO HHH10001003: Autocommit mode: false
+2020-08-14 10:10:04 DriverManagerConnectionProviderImpl.java INFO HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-08-14 10:10:04 Dialect.java INFO HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2020-08-14 10:10:04 LobCreatorBuilderImpl.java INFO HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2020-08-14 10:10:04 BasicTypeRegistry.java INFO HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@3e2059ae
+2020-08-14 10:10:04 SessionFactoryOptionsBuilder.java WARN HHH90000023: Encountered use of deprecated Connection handling settings [hibernate.connection.acquisition_mode]or [hibernate.connection.release_mode]; use [hibernate.connection.handling_mode] instead
+2020-08-14 10:10:04 Version.java INFO HV000001: Hibernate Validator 5.0.1.Final
+2020-08-14 10:10:05 DdlTransactionIsolatorNonJtaImpl.java INFO HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5649ec46] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-08-14 10:10:05 QueryTranslatorFactoryInitiator.java INFO HHH000397: Using ASTQueryTranslatorFactory
+2020-08-14 10:10:05 LicenseServer.java INFO delete license
+2020-08-14 10:10:05 LicenseServer.java INFO delete license result:false
+2020-08-14 10:10:05 LicenseServer.java INFO appType is webapp
+2020-08-14 10:10:05 Log.java INFO Logging initialized @1239ms to org.eclipse.jetty.util.log.Slf4jLog
+2020-08-14 10:10:05 Server.java INFO jetty-9.4.z-SNAPSHOT, build timestamp: 2017-11-22T05:27:37+08:00, git hash: 82b8fb23f757335bb3329d540ce37a2a2615f0a8
+2020-08-14 10:10:05 StandardDescriptorProcessor.java INFO NO JSP Support for /, did not find org.eclipse.jetty.jsp.JettyJspServlet
+2020-08-14 10:10:05 DefaultSessionIdManager.java INFO DefaultSessionIdManager workerName=node0
+2020-08-14 10:10:05 DefaultSessionIdManager.java INFO No SessionScavenger set, using defaults
+2020-08-14 10:10:05 HouseKeeper.java INFO Scavenging every 660000ms
+2020-08-14 10:10:05 ContextHandler.java INFO Started o.e.j.w.WebAppContext@20e6c4dc{/,file:///home/gangqiangsun/MYPROJECT/BACKEND/licenseServer/webapp,AVAILABLE}
+2020-08-14 10:10:05 AbstractConnector.java INFO Started ServerConnector@692fd26{HTTP/1.1,[http/1.1]}{0.0.0.0:8001}
+2020-08-14 10:10:05 Server.java INFO Started @1379ms
+2020-08-14 10:13:27 Version.java INFO HHH000412: Hibernate Core {[WORKING]}
+2020-08-14 10:13:27 Environment.java INFO HHH000206: hibernate.properties not found
+2020-08-14 10:13:27 JavaReflectionManager.java INFO HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2020-08-14 10:13:27 DriverManagerConnectionProviderImpl.java WARN HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-08-14 10:13:27 DriverManagerConnectionProviderImpl.java INFO HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/license]
+2020-08-14 10:13:27 DriverManagerConnectionProviderImpl.java INFO HHH10001001: Connection properties: {user=postgres, password=****, release_mode=after_transaction}
+2020-08-14 10:13:27 DriverManagerConnectionProviderImpl.java INFO HHH10001003: Autocommit mode: false
+2020-08-14 10:13:27 DriverManagerConnectionProviderImpl.java INFO HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-08-14 10:13:28 Dialect.java INFO HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2020-08-14 10:13:28 LobCreatorBuilderImpl.java INFO HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2020-08-14 10:13:28 BasicTypeRegistry.java INFO HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@3e2059ae
+2020-08-14 10:13:28 SessionFactoryOptionsBuilder.java WARN HHH90000023: Encountered use of deprecated Connection handling settings [hibernate.connection.acquisition_mode]or [hibernate.connection.release_mode]; use [hibernate.connection.handling_mode] instead
+2020-08-14 10:13:28 Version.java INFO HV000001: Hibernate Validator 5.0.1.Final
+2020-08-14 10:13:28 DdlTransactionIsolatorNonJtaImpl.java INFO HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5649ec46] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-08-14 10:13:28 QueryTranslatorFactoryInitiator.java INFO HHH000397: Using ASTQueryTranslatorFactory
+2020-08-14 10:13:28 LicenseServer.java INFO delete license
+2020-08-14 10:13:28 LicenseServer.java INFO delete license result:true
+2020-08-14 10:13:28 LicenseServer.java INFO appType is webapp
+2020-08-14 10:13:28 Log.java INFO Logging initialized @1158ms to org.eclipse.jetty.util.log.Slf4jLog
+2020-08-14 10:13:28 Server.java INFO jetty-9.4.z-SNAPSHOT, build timestamp: 2017-11-22T05:27:37+08:00, git hash: 82b8fb23f757335bb3329d540ce37a2a2615f0a8
+2020-08-14 10:13:28 StandardDescriptorProcessor.java INFO NO JSP Support for /, did not find org.eclipse.jetty.jsp.JettyJspServlet
+2020-08-14 10:13:28 DefaultSessionIdManager.java INFO DefaultSessionIdManager workerName=node0
+2020-08-14 10:13:28 DefaultSessionIdManager.java INFO No SessionScavenger set, using defaults
+2020-08-14 10:13:28 HouseKeeper.java INFO Scavenging every 600000ms
+2020-08-14 10:13:28 ContextHandler.java INFO Started o.e.j.w.WebAppContext@68c87fc3{/,file:///home/gangqiangsun/MYPROJECT/BACKEND/licenseServer/webapp,AVAILABLE}
+2020-08-14 10:13:28 AbstractConnector.java INFO Started ServerConnector@3cec79d3{HTTP/1.1,[http/1.1]}{0.0.0.0:8001}
+2020-08-14 10:13:28 Server.java INFO Started @1309ms
+2020-08-14 10:13:53 Version.java INFO HHH000412: Hibernate Core {[WORKING]}
+2020-08-14 10:13:53 Environment.java INFO HHH000206: hibernate.properties not found
+2020-08-14 10:13:53 JavaReflectionManager.java INFO HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2020-08-14 10:13:53 DriverManagerConnectionProviderImpl.java WARN HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-08-14 10:13:53 DriverManagerConnectionProviderImpl.java INFO HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/license]
+2020-08-14 10:13:53 DriverManagerConnectionProviderImpl.java INFO HHH10001001: Connection properties: {user=postgres, password=****, release_mode=after_transaction}
+2020-08-14 10:13:53 DriverManagerConnectionProviderImpl.java INFO HHH10001003: Autocommit mode: false
+2020-08-14 10:13:53 DriverManagerConnectionProviderImpl.java INFO HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-08-14 10:13:53 Dialect.java INFO HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2020-08-14 10:13:53 LobCreatorBuilderImpl.java INFO HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2020-08-14 10:13:53 BasicTypeRegistry.java INFO HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@3e2059ae
+2020-08-14 10:13:54 SessionFactoryOptionsBuilder.java WARN HHH90000023: Encountered use of deprecated Connection handling settings [hibernate.connection.acquisition_mode]or [hibernate.connection.release_mode]; use [hibernate.connection.handling_mode] instead
+2020-08-14 10:13:54 Version.java INFO HV000001: Hibernate Validator 5.0.1.Final
+2020-08-14 10:13:54 DdlTransactionIsolatorNonJtaImpl.java INFO HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5649ec46] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-08-14 10:13:54 QueryTranslatorFactoryInitiator.java INFO HHH000397: Using ASTQueryTranslatorFactory
+2020-08-14 10:13:54 LicenseServer.java INFO license is null
+2020-08-14 10:13:54 LicenseServer.java INFO insert license:true
+2020-08-14 10:13:54 LicenseServer.java INFO appType is webapp
+2020-08-14 10:13:54 Log.java INFO Logging initialized @1182ms to org.eclipse.jetty.util.log.Slf4jLog
+2020-08-14 10:13:54 Server.java INFO jetty-9.4.z-SNAPSHOT, build timestamp: 2017-11-22T05:27:37+08:00, git hash: 82b8fb23f757335bb3329d540ce37a2a2615f0a8
+2020-08-14 10:13:54 StandardDescriptorProcessor.java INFO NO JSP Support for /, did not find org.eclipse.jetty.jsp.JettyJspServlet
+2020-08-14 10:13:54 DefaultSessionIdManager.java INFO DefaultSessionIdManager workerName=node0
+2020-08-14 10:13:54 DefaultSessionIdManager.java INFO No SessionScavenger set, using defaults
+2020-08-14 10:13:54 HouseKeeper.java INFO Scavenging every 660000ms
+2020-08-14 10:13:54 ContextHandler.java INFO Started o.e.j.w.WebAppContext@5432c277{/,file:///home/gangqiangsun/MYPROJECT/BACKEND/licenseServer/webapp,AVAILABLE}
+2020-08-14 10:13:54 AbstractConnector.java INFO Started ServerConnector@2a1edc48{HTTP/1.1,[http/1.1]}{0.0.0.0:8001}
+2020-08-14 10:13:54 Server.java INFO Started @1353ms
+2020-08-14 10:15:23 Version.java INFO HHH000412: Hibernate Core {[WORKING]}
+2020-08-14 10:15:23 Environment.java INFO HHH000206: hibernate.properties not found
+2020-08-14 10:15:23 JavaReflectionManager.java INFO HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2020-08-14 10:15:23 DriverManagerConnectionProviderImpl.java WARN HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-08-14 10:15:23 DriverManagerConnectionProviderImpl.java INFO HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/license]
+2020-08-14 10:15:23 DriverManagerConnectionProviderImpl.java INFO HHH10001001: Connection properties: {user=postgres, password=****, release_mode=after_transaction}
+2020-08-14 10:15:23 DriverManagerConnectionProviderImpl.java INFO HHH10001003: Autocommit mode: false
+2020-08-14 10:15:23 DriverManagerConnectionProviderImpl.java INFO HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-08-14 10:15:23 Dialect.java INFO HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2020-08-14 10:15:23 LobCreatorBuilderImpl.java INFO HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2020-08-14 10:15:23 BasicTypeRegistry.java INFO HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@3e2059ae
+2020-08-14 10:15:23 SessionFactoryOptionsBuilder.java WARN HHH90000023: Encountered use of deprecated Connection handling settings [hibernate.connection.acquisition_mode]or [hibernate.connection.release_mode]; use [hibernate.connection.handling_mode] instead
+2020-08-14 10:15:24 Version.java INFO HV000001: Hibernate Validator 5.0.1.Final
+2020-08-14 10:15:24 DdlTransactionIsolatorNonJtaImpl.java INFO HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5649ec46] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-08-14 10:15:24 QueryTranslatorFactoryInitiator.java INFO HHH000397: Using ASTQueryTranslatorFactory
+2020-08-14 10:15:24 LicenseServer.java INFO delete license
+2020-08-14 10:15:24 LicenseServer.java INFO delete license result:true
+2020-08-14 10:15:24 LicenseServer.java INFO appType is webapp
+2020-08-14 10:15:24 Log.java INFO Logging initialized @1160ms to org.eclipse.jetty.util.log.Slf4jLog
+2020-08-14 10:15:24 Server.java INFO jetty-9.4.z-SNAPSHOT, build timestamp: 2017-11-22T05:27:37+08:00, git hash: 82b8fb23f757335bb3329d540ce37a2a2615f0a8
+2020-08-14 10:15:24 StandardDescriptorProcessor.java INFO NO JSP Support for /, did not find org.eclipse.jetty.jsp.JettyJspServlet
+2020-08-14 10:15:24 DefaultSessionIdManager.java INFO DefaultSessionIdManager workerName=node0
+2020-08-14 10:15:24 DefaultSessionIdManager.java INFO No SessionScavenger set, using defaults
+2020-08-14 10:15:24 HouseKeeper.java INFO Scavenging every 660000ms
+2020-08-14 10:15:24 ContextHandler.java INFO Started o.e.j.w.WebAppContext@68c87fc3{/,file:///home/gangqiangsun/MYPROJECT/BACKEND/licenseServer/webapp,AVAILABLE}
+2020-08-14 10:15:24 AbstractConnector.java INFO Started ServerConnector@3cec79d3{HTTP/1.1,[http/1.1]}{0.0.0.0:8001}
+2020-08-14 10:15:24 Server.java INFO Started @1325ms
+2020-08-14 10:15:30 Version.java INFO HHH000412: Hibernate Core {[WORKING]}
+2020-08-14 10:15:30 Environment.java INFO HHH000206: hibernate.properties not found
+2020-08-14 10:15:30 JavaReflectionManager.java INFO HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2020-08-14 10:15:30 DriverManagerConnectionProviderImpl.java WARN HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2020-08-14 10:15:30 DriverManagerConnectionProviderImpl.java INFO HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/license]
+2020-08-14 10:15:30 DriverManagerConnectionProviderImpl.java INFO HHH10001001: Connection properties: {user=postgres, password=****, release_mode=after_transaction}
+2020-08-14 10:15:30 DriverManagerConnectionProviderImpl.java INFO HHH10001003: Autocommit mode: false
+2020-08-14 10:15:30 DriverManagerConnectionProviderImpl.java INFO HHH000115: Hibernate connection pool size: 20 (min=1)
+2020-08-14 10:15:30 Dialect.java INFO HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2020-08-14 10:15:30 LobCreatorBuilderImpl.java INFO HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2020-08-14 10:15:30 BasicTypeRegistry.java INFO HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@3e2059ae
+2020-08-14 10:15:30 SessionFactoryOptionsBuilder.java WARN HHH90000023: Encountered use of deprecated Connection handling settings [hibernate.connection.acquisition_mode]or [hibernate.connection.release_mode]; use [hibernate.connection.handling_mode] instead
+2020-08-14 10:15:30 Version.java INFO HV000001: Hibernate Validator 5.0.1.Final
+2020-08-14 10:15:30 DdlTransactionIsolatorNonJtaImpl.java INFO HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5649ec46] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2020-08-14 10:15:31 QueryTranslatorFactoryInitiator.java INFO HHH000397: Using ASTQueryTranslatorFactory
+2020-08-14 10:15:31 LicenseServer.java INFO license is null
+2020-08-14 10:15:31 LicenseServer.java INFO insert license:true
+2020-08-14 10:15:31 LicenseServer.java INFO res1=true
+2020-08-14 10:15:31 LicenseServer.java INFO appType is webapp
+2020-08-14 10:15:31 Log.java INFO Logging initialized @1237ms to org.eclipse.jetty.util.log.Slf4jLog
+2020-08-14 10:15:31 Server.java INFO jetty-9.4.z-SNAPSHOT, build timestamp: 2017-11-22T05:27:37+08:00, git hash: 82b8fb23f757335bb3329d540ce37a2a2615f0a8
+2020-08-14 10:15:31 StandardDescriptorProcessor.java INFO NO JSP Support for /, did not find org.eclipse.jetty.jsp.JettyJspServlet
+2020-08-14 10:15:31 DefaultSessionIdManager.java INFO DefaultSessionIdManager workerName=node0
+2020-08-14 10:15:31 DefaultSessionIdManager.java INFO No SessionScavenger set, using defaults
+2020-08-14 10:15:31 HouseKeeper.java INFO Scavenging every 600000ms
+2020-08-14 10:15:31 ContextHandler.java INFO Started o.e.j.w.WebAppContext@1eb2d371{/,file:///home/gangqiangsun/MYPROJECT/BACKEND/licenseServer/webapp,AVAILABLE}
+2020-08-14 10:15:31 AbstractConnector.java INFO Started ServerConnector@43889072{HTTP/1.1,[http/1.1]}{0.0.0.0:8001}
+2020-08-14 10:15:31 Server.java INFO Started @1396ms
