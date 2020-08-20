@@ -96,4 +96,77 @@ public class CreateAuthCode {
         }
         return h[i / 16] + h[i % 16];
     }
+
+    public String GetAuthCodeWithTime(String encodeStr, String time_hex) {
+        String result = null;
+        Date current = new Date();
+
+        int hours = current.getHours();
+        int minutes = current.getMinutes();
+        int ones = minutes % 16;
+        String abddd = md5(encodeStr);
+        char[] codechar = new char[16];
+        for (int i = 0; i < 3; i++) {
+            codechar[i] = abddd.charAt(hours % 16 + i);
+        }
+
+        String hourStr = Integer.toHexString(hours).toUpperCase();
+        if (hourStr.length() == 1) {
+            codechar[3] = Integer.toHexString(hours).toUpperCase().charAt(0);
+        } else {
+            codechar[3] = Integer.toHexString(hours).toUpperCase().charAt(1);
+        }
+
+        codechar[4] = '-';
+        for (int i = 0; i < 2; i++) {
+            codechar[5 + i] = abddd.charAt(ones + i);
+        }
+        String minStr = Integer.toHexString(minutes).toUpperCase();
+        if (minStr.length() == 1) {
+            codechar[7] = '0';
+            codechar[8] = minStr.charAt(0);
+        } else {
+            codechar[7] = minStr.charAt(0);
+            codechar[8] = minStr.charAt(1);
+        }
+        codechar[9] = '-';
+        if (time_hex.length() == 6) {
+            codechar[10] = time_hex.charAt(0);
+            codechar[11] = time_hex.charAt(1);
+            codechar[12] = time_hex.charAt(2);
+            codechar[13] = time_hex.charAt(3);
+            codechar[14] = time_hex.charAt(4);
+            codechar[15] = time_hex.charAt(5);
+        } else if (time_hex.length() == 5) {
+            codechar[10] = '0';
+            codechar[11] = time_hex.charAt(0);
+            codechar[12] = time_hex.charAt(1);
+            codechar[13] = time_hex.charAt(2);
+            codechar[14] = time_hex.charAt(3);
+            codechar[15] = time_hex.charAt(4);
+        } else if (time_hex.length() == 4) {
+            codechar[10] = '0';
+            codechar[11] = '0';
+            codechar[12] = time_hex.charAt(0);
+            codechar[13] = time_hex.charAt(1);
+            codechar[14] = time_hex.charAt(2);
+            codechar[15] = time_hex.charAt(3);
+        } else if (time_hex.length() == 2) {
+            codechar[10] = '0';
+            codechar[11] = '0';
+            codechar[12] = '0';
+            codechar[13] = '0';
+            codechar[14] = time_hex.charAt(0);
+            codechar[15] = time_hex.charAt(1);
+        }else if (time_hex.length() == 1) {
+            codechar[10] = '0';
+            codechar[11] = '0';
+            codechar[12] = '0';
+            codechar[13] = '0';
+            codechar[14] = '0';
+            codechar[15] = time_hex.charAt(0);
+        }
+        result = new String(codechar);
+        return result.toUpperCase();
+    }
 }

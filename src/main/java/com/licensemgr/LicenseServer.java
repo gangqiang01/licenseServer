@@ -3,6 +3,8 @@ package com.licensemgr;
 import com.db.entity.LicenseInfo;
 import com.db.server.LicenseInfoServer;
 import com.servlet.LicenseServlet;
+import com.util.CreateAuthCode;
+import com.util.ThirtySixToTenUtil;
 import org.eclipse.jetty.server.*;
 import org.eclipse.jetty.servlet.ServletHolder;
 import org.eclipse.jetty.util.thread.QueuedThreadPool;
@@ -13,6 +15,8 @@ import sun.rmi.runtime.Log;
 
 import javax.naming.ldap.UnsolicitedNotificationEvent;
 import java.io.File;
+import java.util.Date;
+
 /**
  * @date ：Created in 8/13/20 9:58 AM
  * @description：license server
@@ -25,27 +29,6 @@ public class LicenseServer {
     }
 
     private void start(){
-        LicenseInfoServer licenseInfoServer = new LicenseInfoServer();
-        if(licenseInfoServer.getLicenseInfoByName("test") == null){
-            LOG.info("license is null");
-            LicenseInfo licenseInfo = new LicenseInfo();
-            licenseInfo.setName("test");
-            licenseInfo.setNum(2);
-            licenseInfo.setProductname("androiddm");
-            boolean res = licenseInfoServer.insertLicenseInfo(licenseInfo);
-            LOG.info("insert license:"+res);
-            LicenseInfo licenseInfo1 = licenseInfoServer.getLicenseInfoByName("test");
-            licenseInfo1.setProductname("deviceon");
-            boolean res1 = licenseInfoServer.updateLicenseInfo(licenseInfo1);
-            LOG.info("res1="+res1);
-        }else{
-            LOG.info("delete license");
-            boolean resu = licenseInfoServer.deleteLicenseInfoByName("test");
-            LOG.info("delete license result:"+resu);
-
-        }
-
-
         startJettyServer();
     }
 
@@ -85,7 +68,7 @@ public class LicenseServer {
 
 
         ServletHolder licenseServletHolder = new ServletHolder(new LicenseServlet());
-        root.addServlet(licenseServletHolder, "/api/licensemgr/*");
+        root.addServlet(licenseServletHolder, "/deviceon-offline-authcode/*");
 
         // Start jetty
         try {
