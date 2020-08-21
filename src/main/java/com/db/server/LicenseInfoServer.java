@@ -38,22 +38,22 @@ public class LicenseInfoServer implements ILicenseInfoServer {
         return true;
     }
 
-    public boolean deleteLicenseInfoByName(String name) {
+    public boolean deleteLicenseInfoByMachineId(String machineId) {
         boolean nRet = false;
-        if(null == name || name.equals("")) return nRet;
+        if(null == machineId || machineId.equals("")) return nRet;
         SessionFactory sessionFactory = SessionFactoryUtil.getInstance().getSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction tx = session.beginTransaction();
         try{
-            String hql="delete LicenseInfo as l where l.name=:name";
+            String hql="delete LicenseInfo as l where l.machineid=:machineid";
             Query query=session.createQuery(hql);
-            query.setParameter("name", name);
+            query.setParameter("machineid", machineId);
             int tmpValue = query.executeUpdate();
-            System.out.println("[deleteLicenseInfoByName]Result of query " + String.valueOf(tmpValue));
+            System.out.println("[deleteLicenseInfoByMachineId]Result of query " + String.valueOf(tmpValue));
             tx.commit();
             nRet = true;
         }catch(Exception ex){
-            System.out.println("[deleteLicenseInfoByName] test delete exception" + ex.toString());
+            System.out.println("[deleteLicenseInfoByMachineId] test delete exception" + ex.toString());
             nRet = false;
             if(tx != null) tx.rollback();
             session.close();
@@ -102,18 +102,18 @@ public class LicenseInfoServer implements ILicenseInfoServer {
         return licenseArray;
     }
 
-    public LicenseInfo getLicenseInfoByName(String name) {
+    public LicenseInfo getLicenseInfoByMachineId(String machineId) {
         List<LicenseInfo> list = new ArrayList<LicenseInfo>();
         LicenseInfo license = null;
-        if(null == name || "" == name) return license;
+        if(null == machineId || "" == machineId) return license;
         SessionFactory sessionFactory = SessionFactoryUtil.getInstance().getSessionFactory();
         Session session = sessionFactory.openSession();
         try{
-            list = (List<LicenseInfo>)session.createQuery("select l from LicenseInfo l where l.name=:name")
-                    .setParameter("name", name).list();
+            list = (List<LicenseInfo>)session.createQuery("select l from LicenseInfo l where l.machineid=:machineid")
+                    .setParameter("machineid", machineId).list();
             if(list.size()>0) license = list.get(0);
         }catch(Exception ex){
-            System.out.println("[getLicenseInfoByName] exception" + ex.toString());
+            System.out.println("[getLicenseInfoByMachineId] exception" + ex.toString());
         }
         session.close();
         return license;

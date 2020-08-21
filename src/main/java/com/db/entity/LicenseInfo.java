@@ -7,11 +7,10 @@ import javax.persistence.*;
 public class LicenseInfo implements java.io.Serializable {
 
 	private long id;
-	private String name;
+	private String machineid;
 	private String productname;
 	private long ts;
-	private long vts;
-	private int num;
+	private String authcode;
 
 	public LicenseInfo() {
 	}
@@ -20,8 +19,8 @@ public class LicenseInfo implements java.io.Serializable {
 		this.id = id;
 	}
 
-	public LicenseInfo(String name) {
-		this.name = name;
+	public LicenseInfo(String machineid) {
+		this.machineid = machineid;
 	}
 
 
@@ -37,12 +36,12 @@ public class LicenseInfo implements java.io.Serializable {
 		this.id = id;
 	}
 
-	@Column(name = "name", unique = true, length = 256)
-	public String getName(){
-		return this.name;
+	@Column(name = "machineid", unique = true, length = 256)
+	public String getMachineid(){
+		return this.machineid;
 	}
-	public void setName(String name){
-		this.name = name;
+	public void setMachineid(String machineid){
+		this.machineid = machineid;
 	}
 
 	public String getProductname() {
@@ -59,18 +58,12 @@ public class LicenseInfo implements java.io.Serializable {
 		this.ts = ts;
 	}
 
-	public long getVts(){
-		return this.ts;
+	public String getAuthcode(){
+		return this.authcode;
 	}
-	public void setVts(long vts){
-		this.vts = vts;
+	public void setAuthcode(String authcode){
+		this.authcode = authcode;
 	}
 
-	public int num(){
-		return this.num;
-	}
-	public void setNum(int num){
-		this.num = num;
-	}
 
 }

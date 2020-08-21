@@ -6,15 +6,15 @@ import java.util.List;
 public interface ILicenseInfoServer {
     public boolean insertLicenseInfo(LicenseInfo group);
 
-    public boolean deleteLicenseInfoByName(String name);
+    public boolean deleteLicenseInfoByMachineId(String machineId);
 
     public boolean deleteLicenseInfoAll();
 
     public LicenseInfo[] getLicenseInfoAll();
 
-    public LicenseInfo getLicenseInfoByName(String name);
+    public LicenseInfo getLicenseInfoByMachineId(String machineId);
 
-    public boolean updateLicenseInfo(LicenseInfo group);
+    public boolean updateLicenseInfo(LicenseInfo licenseInfo);
 
     public List<LicenseInfo> getLicenseInfoByProductname(String Productname);
 

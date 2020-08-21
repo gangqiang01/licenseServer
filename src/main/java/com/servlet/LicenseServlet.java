@@ -1,6 +1,8 @@
 package com.servlet;
 
 import com.alibaba.fastjson.JSONObject;
+import com.db.entity.LicenseInfo;
+import com.db.server.LicenseInfoServer;
 import com.former.Response;
 import com.licensemgr.LicenseServer;
 import com.util.CreateAuthCode;
@@ -48,28 +50,41 @@ public class LicenseServlet extends HttpServlet {
     private void get_1_createAuthcode(HttpServletRequest req, HttpServletResponse resp, ParseRequestBody parseRequestBody) throws ServletException, IOException {
         String pn = parseRequestBody.getReqBodyValue("partnumber");
         String machineId = parseRequestBody.getReqBodyValue("machineID");
+        String authcode;
         if(StringUtils.isBlank(pn)|| StringUtils.isBlank(machineId)){
             resp.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             resp.getWriter().format(Response.error("Parameter error").toString()).flush();
             return;
         }
-        Calendar now = Calendar.getInstance();
-        String y, m, d;
-        y = String.valueOf(now.get(Calendar.YEAR));
-        m = String.valueOf(now.get(Calendar.MONTH)+1);
-        d = String.valueOf(now.get(Calendar.DATE));
-        if(m.length() == 1){
-            m = String.format("0%s", m);
+        LicenseInfoServer licenseInfoServer = new LicenseInfoServer();
+        LicenseInfo licenseInfo = licenseInfoServer.getLicenseInfoByMachineId(machineId);
+        if(licenseInfo != null){
+            authcode = String.valueOf(licenseInfo.getAuthcode());
+        }else{
+            Calendar now = Calendar.getInstance();
+            String y, m, d;
+            y = String.valueOf(now.get(Calendar.YEAR));
+            m = String.valueOf(now.get(Calendar.MONTH)+1);
+            d = String.valueOf(now.get(Calendar.DATE));
+            if(m.length() == 1){
+                m = String.format("0%s", m);
+            }
+            if(d.length() == 1){
+                d = String.format("0%s", d);
+            }
+            String dateString = String.format("%1$s%2$s%3$s%4$s", y, m, d, "01");
+            CreateAuthCode createAuthCode = new CreateAuthCode();
+            String encodeStr = String.format("%1$s+%2$s+%3$s", pn, machineId, dateString);
+            String thirtySixDate = ThirtySixToTenUtil.DeciamlToThirtySix(Integer.valueOf(dateString));
+            LOG.info("thirtySix:"+thirtySixDate+"ten:"+dateString);
+            authcode = createAuthCode.GetAuthCodeWithTime(encodeStr, thirtySixDate);
+            LicenseInfo licenseInfo1 = new LicenseInfo();
+            licenseInfo1.setProductname(pn);
+            licenseInfo1.setAuthcode(authcode);
+            licenseInfo1.setMachineid(machineId);
+            licenseInfoServer.insertLicenseInfo(licenseInfo1);
         }
-        if(d.length() == 1){
-            d = String.format("0%s", d);
-        }
-        String dateString = String.format("%1$s%2$s%3$s%4$s", y, m, d, "01");
-        CreateAuthCode createAuthCode = new CreateAuthCode();
-        String encodeStr = String.format("%1$s+%2$s+%3$s", pn, machineId, dateString);
-        String thirtySixDate = ThirtySixToTenUtil.DeciamlToThirtySix(Integer.valueOf(dateString));
-        LOG.info("thirtySix:"+thirtySixDate+"ten:"+dateString);
-        String authcode = createAuthCode.GetAuthCodeWithTime(encodeStr, thirtySixDate);
+
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("authcode", authcode);
         resp.setContentType("application/json");
