@@ -36,7 +36,6 @@ public class LicenseInfo implements java.io.Serializable {
 		this.id = id;
 	}
 
-	@Column(name = "machineid", unique = true, length = 256)
 	public String getMachineid(){
 		return this.machineid;
 	}

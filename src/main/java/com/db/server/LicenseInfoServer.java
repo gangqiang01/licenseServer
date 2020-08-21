@@ -3,6 +3,7 @@ package com.db.server;
 import com.db.SessionFactoryUtil;
 import com.db.entity.LicenseInfo;
 import com.db.impl.ILicenseInfoServer;
+import org.apache.commons.lang3.StringUtils;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -102,21 +103,19 @@ public class LicenseInfoServer implements ILicenseInfoServer {
         return licenseArray;
     }
 
-    public LicenseInfo getLicenseInfoByMachineId(String machineId) {
+    public List<LicenseInfo> getLicenseInfoByMachineId(String machineId) {
         List<LicenseInfo> list = new ArrayList<LicenseInfo>();
-        LicenseInfo license = null;
-        if(null == machineId || "" == machineId) return license;
+        if(null == machineId || "" == machineId) return list;
         SessionFactory sessionFactory = SessionFactoryUtil.getInstance().getSessionFactory();
         Session session = sessionFactory.openSession();
         try{
             list = (List<LicenseInfo>)session.createQuery("select l from LicenseInfo l where l.machineid=:machineid")
                     .setParameter("machineid", machineId).list();
-            if(list.size()>0) license = list.get(0);
         }catch(Exception ex){
             System.out.println("[getLicenseInfoByMachineId] exception" + ex.toString());
         }
         session.close();
-        return license;
+        return list;
     }
 
     public boolean updateLicenseInfo(LicenseInfo license) {
@@ -147,7 +146,7 @@ public class LicenseInfoServer implements ILicenseInfoServer {
 
     public List<LicenseInfo> getLicenseInfoByProductname(String productname) {
         List<LicenseInfo> list = new ArrayList<LicenseInfo>();
-        if(null == productname || "" == productname) return list;
+        if(StringUtils.isBlank(productname)) return list;
         SessionFactory sessionFactory = SessionFactoryUtil.getInstance().getSessionFactory();
         Session session = sessionFactory.openSession();
         try{
@@ -159,5 +158,22 @@ public class LicenseInfoServer implements ILicenseInfoServer {
         }
         session.close();
         return list;
+    }
+
+    public LicenseInfo getLicenseInfoByMachineIdAndProductname(String machineId, String productname) {
+        List<LicenseInfo> list = new ArrayList<LicenseInfo>();
+        LicenseInfo license = null;
+        if(StringUtils.isBlank(productname)|| StringUtils.isBlank(machineId)) return license;
+        SessionFactory sessionFactory = SessionFactoryUtil.getInstance().getSessionFactory();
+        Session session = sessionFactory.openSession();
+        try{
+            list = (List<LicenseInfo>)session.createQuery("select l from LicenseInfo l where l.name=:name")
+                    .setParameter("name", productname).list();
+            if(list.size()>0) license = list.get(0);
+        }catch(Exception ex){
+            System.out.println("[getLicenseInfoByProductname] exception" + ex.toString());
+        }
+        session.close();
+        return license;
     }
 }

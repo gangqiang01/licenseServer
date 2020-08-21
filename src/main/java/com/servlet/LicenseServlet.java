@@ -57,7 +57,7 @@ public class LicenseServlet extends HttpServlet {
             return;
         }
         LicenseInfoServer licenseInfoServer = new LicenseInfoServer();
-        LicenseInfo licenseInfo = licenseInfoServer.getLicenseInfoByMachineId(machineId);
+        LicenseInfo licenseInfo = licenseInfoServer.getLicenseInfoByMachineIdAndProductname(machineId, pn);
         if(licenseInfo != null){
             authcode = String.valueOf(licenseInfo.getAuthcode());
         }else{

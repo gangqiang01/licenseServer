@@ -12,10 +12,10 @@ public interface ILicenseInfoServer {
 
     public LicenseInfo[] getLicenseInfoAll();
 
-    public LicenseInfo getLicenseInfoByMachineId(String machineId);
+    public List<LicenseInfo> getLicenseInfoByMachineId(String machineId);
 
     public boolean updateLicenseInfo(LicenseInfo licenseInfo);
 
-    public List<LicenseInfo> getLicenseInfoByProductname(String Productname);
-
+    public List<LicenseInfo> getLicenseInfoByProductname(String productname);
+    public LicenseInfo getLicenseInfoByMachineIdAndProductname(String machineId, String productname);
 }
