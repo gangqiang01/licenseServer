@@ -59,8 +59,8 @@ public class LicenseServer {
 
         WebAppContext root = new WebAppContext();
         root.setContextPath("/");
-//        root.setResourceBase(this.getClass().getClassLoader().getResource(appType).toExternalForm());
-        root.setResourceBase(appType);
+        root.setResourceBase(this.getClass().getClassLoader().getResource(appType).toExternalForm());
+//        root.setResourceBase(appType);
         root.setParentLoaderPriority(true);
         server.setHandler(root);
 

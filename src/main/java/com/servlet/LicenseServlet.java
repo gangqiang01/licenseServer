@@ -73,7 +73,7 @@ public class LicenseServlet extends HttpServlet {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("authcode", authcode);
         resp.setContentType("application/json");
-        resp.getOutputStream().write(jsonObject.toString().getBytes("UTF-8"));
+        resp.getOutputStream().write(Response.success(jsonObject).toString().getBytes("UTF-8"));
         resp.setStatus(HttpServletResponse.SC_OK);
         return;
     }
